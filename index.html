@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+body{
+  background-color: whitesmoke;
+}
+  
+#shape{
+height: 200px;
+width: 200px;
+background-color: red;
+position: relative;
+}
+
+h2{
+  color: gold;
+  font-family: "Arial"
+}
+</style>
+<body>
+
+<h2>Reaction tester</h2>
+
+<p id="para"></p>
+
+<div id="shape"></div>
+
+<script>
+
+  function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+
+
+function setRandomColor() {
+  $("#colorpad").css("background-color", getRandomColor());
+}
+
+  
+      var start = new Date().getTime();
+      function move(){
+      var left;
+      var top;
+      var wh;
+      left = Math.random()*300;
+      right = Math.random()*300;
+      wh = ((Math.random()*400) + 100);
+          document.getElementById("shape").style.left = left + "px";
+          document.getElementById("shape").style.top = top + "px";
+          document.getElementById("shape").style.width = wh + "px";
+          document.getElementById("shape").style.height = wh + "px";
+          document.getElementById("shape").style.display = "block";  
+      }
+      move();
+  
+        document.getElementById("shape").onclick = function(){
+          var value = Math.floor(Math.random() * 1000000)            
+        document.getElementById("shape").style.display = "none";	
+        document.getElementById("shape").style.backgroundColor = getRandomColor();
+        var end = new Date().getTime();
+        var time = (end - start)/1000;
+       // alert(time);
+        move();
+    };
+</script>
+
+</body>
+</html>
